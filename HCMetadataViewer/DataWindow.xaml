@@ -1,0 +1,48 @@
+﻿<Window x:Class="HCMetadataViewer.DataWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:diag="clr-namespace:System.Diagnostics;assembly=WindowsBase"
+        xmlns:local="clr-namespace:HCMetadataViewer"
+        mc:Ignorable="d"
+        Title="DataWindow" Height="600" Width="800">
+  <Grid>
+    <ScrollViewer>
+      <StackPanel VerticalAlignment="Top">
+        <Label Content="Function name:" />
+        <TextBox Name="FunctionNameTextBlock"
+           Background="Transparent" BorderThickness="1" IsReadOnly="True" TextWrapping="Wrap" />
+        <Label Content="Function type:" />
+        <TextBox Name="FunctionTypeTextBlock"
+           Background="Transparent" BorderThickness="1" IsReadOnly="True" TextWrapping="Wrap" />
+        <Label Content="Arguments:" />
+        <ItemsControl Name="ArgumentsItemsControl">
+          <ItemsControl.ItemTemplate>
+            <DataTemplate>
+              <StackPanel>
+                <Label Content="{Binding CArgument}" />
+                <ListBox ItemsSource="{Binding PotentialValues}" />
+              </StackPanel>
+            </DataTemplate>
+          </ItemsControl.ItemTemplate>
+        </ItemsControl>
+        <Label Content="DLL:" />
+        <TextBox Name="DllTextBlock"
+           Background="Transparent" BorderThickness="1" IsReadOnly="True" TextWrapping="Wrap" />
+        <Label Content="Lib:" />
+        <TextBox Name="LibTextBlock"
+           Background="Transparent" BorderThickness="1" IsReadOnly="True" TextWrapping="Wrap" />
+        <Label Content="Header:" />
+        <TextBox Name="HeaderTextBlock"
+           Background="Transparent" BorderThickness="1" IsReadOnly="True" TextWrapping="Wrap" />
+        <Label Content="Minimum Consumer Version:" />
+        <TextBox Name="MinConsumerVerTextBlock"
+           Background="Transparent" BorderThickness="1" IsReadOnly="True" TextWrapping="Wrap" />
+        <Label Content="Minimum Server Version:" />
+        <TextBox Name="MinServerVerTextBlock"
+           Background="Transparent" BorderThickness="1" IsReadOnly="True" TextWrapping="Wrap" />
+      </StackPanel>
+    </ScrollViewer>
+  </Grid>
+</Window>
